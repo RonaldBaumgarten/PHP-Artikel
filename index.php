@@ -48,8 +48,9 @@
 
 			  echo "<td>
 				  		<form action='db.php' method='POST'>
-							<label>Artikel löschen:</label>
-							<input type='submit' name='delete' value='$artikelID'>
+							<button type='submit'  name='delete' value='$artikelID'>
+								Artikel löschen
+							</button>
 						</form>
 					</td>";
               
