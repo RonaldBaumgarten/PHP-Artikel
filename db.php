@@ -28,4 +28,18 @@
           echo "Fehler:" .$sql->error;     
       }
    }
+
+   if(isset($_POST['delete'])){
+      $artikelID = $_POST['delete'];
+
+      $sql = $conn->prepare("DELETE FROM artikel WHERE artikelID=?");  
+      $sql->bind_param("i", $artikelID); 
+
+      if($sql->execute()){
+          header("location: index.php");  
+          exit();
+      }else{
+          echo "Fehler:" .$sql->error;     
+      }
+   }
 ?>

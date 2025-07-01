@@ -1,11 +1,11 @@
 <?php
-include("db.php");
+	include("db.php");
 ?>
 
 <html>
 <head>
-
    <title>Artikelverwaltung</title>
+	<link stylesheet
 </head>
 <body>
     <h2>Artikel hinzufügen</h2>
@@ -38,16 +38,24 @@ include("db.php");
          
            $kontaktsql = $conn->query("SELECT * FROM artikel;");
            while($zeile = $kontaktsql->fetch_assoc()){
-                           echo "<tr>";
+			  echo "<tr>";
+			   $artikelID = $zeile['artikelID'];
               echo "<td>" .$zeile['artikelID']."</td>";
               echo "<td>" .$zeile['Bezeichnung']."</td>";
               echo "<td>" .$zeile['Preis']."</td>";
               echo "<td>" .$zeile['Kategorie']."</td>";
-              echo "<td>" .$zeile['Lagerbestand']."</td>";
+			  echo "<td>" .$zeile['Lagerbestand']."</td>";
+
+			  echo "<td>
+				  		<form action='db.php' method='POST'>
+							<label>Artikel löschen:</label>
+							<input type='submit' name='delete' value='$artikelID'>
+						</form>
+					</td>";
               
               echo "</tr>";
            }
 		?>
-    </table>
+	</table>
 </body>
 </html>
