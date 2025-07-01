@@ -13,13 +13,13 @@
    }
 
    if(isset($_POST['insert'])){
-      $Bezeichnung = $_POST['bezeichnung'];
-      $Preis = $_POST['preis'];
-      $Kategorie = $_POST['kategorie'];
-      $Lagerbestand = $_POST['lagerbestand'];
+      $bezeichnung = $_POST['bezeichnung'];
+      $preis = $_POST['preis'];
+      $kategorie = $_POST['kategorie'];
+      $lagerbestand = $_POST['lagerbestand'];
 
       $sql = $conn->prepare("INSERT INTO artikel VALUES (NULL,?,?,?,?)");  
-      $sql->bind_param("sss", $bezeichnung, $preis, $kategorie, $lagerbestand); 
+      $sql->bind_param("sdsi", $bezeichnung, $preis, $kategorie, $lagerbestand); 
 
       if($sql->execute()){
           header("location: index.php");  

@@ -11,13 +11,16 @@ include("db.php");
     <h2>Artikel hinzufügen</h2>
 
     <form action="db.php" method="POST">
-       <label for="vname">Bezeichnung:</label>
+       <label for="bezeichnung">Bezeichnung:</label>
        <input type="text" name="bezeichnung"><br>
-       <label for="nname">Preis:</label>
+       <label for="preis">Preis:</label>
        <input type="text" name="preis"><br>
-       <label for="email">Kategorie:</label>
-       <input type="text" name="kategorie"><br>
-       <label for="email">Lagerbestand:</label>
+		<select name="kategorie">
+			<option value="Sport">Sport und Freizeit</option>
+			<option value="Lebensmittel">Lebensmittel</option>
+			<option value="Diverses">Diverses</option>
+		</select><br>
+       <label for="lagerbestand">Lagerbestand:</label>
        <input type="text" name="lagerbestand"><br>
 
        <input type="submit" name="insert" value="Hinzufügen">
