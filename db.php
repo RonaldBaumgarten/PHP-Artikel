@@ -42,4 +42,17 @@
           echo "Fehler:" .$sql->error;     
       }
    }
+
+   if(isset($_POST['bearbeiten'])){
+	   $sql = $conn->prepare("UPDATE artikel SET Bezeichnung=?,  Preis=?, Kategorie=?, Lagerbestand=? WHERE artikelID=?");
+	   $sql->bind_param("sdsii", $_POST['bezeichnung'], $_POST['preis'], 
+		   $_POST['kategorie'], $_POST['lagerbestand'], $_POST['artikelID']); 
+
+      if($sql->execute()){
+          header("location: index.php");  
+          exit();
+      }else{
+          echo "Fehler:" .$sql->error;     
+      }
+   }
 ?>

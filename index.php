@@ -17,7 +17,7 @@
        <input type="text" name="preis"><br>
 		<select name="kategorie">
 			<option value="Sport">Sport und Freizeit</option>
-			<option value="Lebensmittel">Lebensmittel</option>
+			<option value="Lebensmittel" selected="selected">Lebensmittel</option>
 			<option value="Diverses">Diverses</option>
 		</select><br>
        <label for="lagerbestand">Lagerbestand:</label>
@@ -49,10 +49,15 @@
 			  echo "<td>
 				  		<form action='db.php' method='POST'>
 							<button type='submit'  name='delete' value='$artikelID'>
-								Artikel löschen
+								Loeschen
 							</button>
 						</form>
-					</td>";
+					</td>
+					<td>
+					<a href='bearbeiten.php?artikelID=".$artikelID."'>Bearbeiten</a>
+					</td>
+
+					";
               
               echo "</tr>";
            }
